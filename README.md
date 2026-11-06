@@ -35,7 +35,7 @@ runs `LOCAL_SIMULATION` mode — a faithful local mirror of the same check seque
 ## Quick start
 
 ```bash
-# 1. Build the FlashProve CPU verifier (requires Rust toolchain)
+# 1. Build the FlashProve CPU verifier (requires Linux, g++ 13+, make, unzip)
 bash upstream/setup.sh
 
 # 2. Run the full test suite (LOCAL_SIMULATION mode — no real LNES-22 needed)
@@ -46,9 +46,9 @@ export LNES22_SOURCE_PATH=/path/to/vendor/lnes22
 python -m pytest tests/test_all.py -v
 ```
 
-Expected without prerequisites (no cp_verify, no LNES22): **85 pass, 17 skip** (observed on Windows/Mac).  
-Expected on Linux with cp_verify built, no LNES22: **98 pass, 4 skip**.  
-Expected on Linux with cp_verify + `LNES22_SOURCE_PATH`: **102/102 pass**.  
+Expected without prerequisites (no cp_verify, no LNES22): **84 pass, 18 skip** (observed on Windows/Mac/Linux without build).  
+Expected on Linux with cp_verify built, no LNES22: **98 pass, 4 skip** (verified 2026-11-06, WSL2/Ubuntu, Python 3.12.3).  
+Expected on Linux with cp_verify + `LNES22_SOURCE_PATH`: **102/102 pass** (requires private LNES-22 source; not publicly available).  
 Tests requiring the verifier binary or LNES-22 source skip automatically when those prerequisites are absent.
 
 ---
@@ -125,9 +125,11 @@ exergynet-flashprove/
 │   └── allowed_commitments.json    # Sample trusted commitment registry
 ├── tests/
 │   └── test_all.py                 # 102-test suite
-├── docs/                           # 21 specification and audit documents
-├── upstream/                       # FlashProve source (Apache 2.0, Anthropic)
-│   └── setup.sh                    # Build script
+├── examples/
+│   └── demo_three_cases.py         # Three-case demonstration script
+├── docs/                           # 23 specification and audit documents
+├── upstream/                       # FlashProve build scripts and hashes
+│   └── setup.sh                    # Build script (clones + compiles cp_verify)
 ├── generate_sha256sums.py
 └── SHA256SUMS                      # Sealed digests
 ```
@@ -144,7 +146,7 @@ exergynet-flashprove/
 
 ## Status
 
-**Public release candidate** — draft only, pending Trustee authorization.  
-No publication, production deployment, or financial execution authorized.
+**Published research prototype** — public release v0.2.0 (EDT-FP-002-RC3, 2026-11-05).  
+Production deployment, financial execution, and mainnet transactions are not part of this release.
 
 > *INTELLIGENCE PROPOSES. AUTHORITY DISPOSES.*
