@@ -1,0 +1,6 @@
+# Enforce LF line endings on all platforms (SHA256SUMS computed on LF-normalized files)
+* text=auto eol=lf
+
+# Markdown files use trailing spaces for hard line breaks — not whitespace errors
+*.md  whitespace=-trailing-space
+*.txt whitespace=-trailing-space

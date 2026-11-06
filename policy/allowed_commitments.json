@@ -1,0 +1,25 @@
+{
+  "_comment": "Trusted commitment IDs for the ExergyNet FlashProve demo harness. These are the ONLY commitment IDs the adapter will accept. A proof sender may NOT supply an arbitrary ID and thereby establish its own model identity.",
+  "_source": "pinned from FlashProve upstream examples/accepted-proof/ID.txt and examples/full-size/ID.txt — verified against upstream git commit",
+  "policy_version": "0.1",
+  "commitments": [
+    {
+      "commitment_id": "79a5a2bc7a469b40df73dedf40abeb740671e8ae8077738bd3743897aeb22183",
+      "label": "flashprove-synthetic-small",
+      "source": "upstream examples/accepted-proof/ID.txt",
+      "model_note": "Synthetic small model fixture — NOT a real Claude or Llama production model",
+      "fixture_type": "reference_example",
+      "trust_basis": "upstream_pinned_commit",
+      "allowed_capabilities": ["MOCK.ECHO_INTENT", "MOCK.LOG_EVENT", "MOCK.READ_FILE", "MOCK.SIMULATED_TRANSFER"]
+    },
+    {
+      "commitment_id": "7a285919b43961861d9839530c26725accf26aa6d74e3c2afa31b9dc6bcd18fe",
+      "label": "flashprove-synthetic-full-size",
+      "source": "upstream examples/full-size/ID.txt (Llama 4 Maverick shape, synthetic weights)",
+      "model_note": "Full-size synthetic model fixture — NOT a real Llama 4 Maverick production model",
+      "fixture_type": "reference_example",
+      "trust_basis": "upstream_pinned_commit",
+      "allowed_capabilities": ["MOCK.ECHO_INTENT", "MOCK.LOG_EVENT", "MOCK.READ_FILE", "MOCK.SIMULATED_TRANSFER"]
+    }
+  ]
+}

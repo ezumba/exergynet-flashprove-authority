@@ -1,0 +1,22 @@
+# Python bytecode and caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Build artifacts (users build from source via upstream/setup.sh)
+upstream/bin/
+upstream/build/
+upstream/setup.log
+upstream/build.log
+upstream/reference_verify_output.txt
+
+# FlashProve example data (populated by setup.sh)
+upstream/examples/
+
+# SQLite replay store (created at runtime)
+*.db
+
+# Evidence store (created at runtime)
+evidence_records/
+replay_protection_store.json
